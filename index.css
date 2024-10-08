@@ -34,17 +34,18 @@ select {
     border: 0.0625em solid black;
     background-color: #1F2937;
     border: 1px solid white;
+    font-weight: bold;
     
 }
 
 img {
-    height: 750px;
+    height: 700px;
 }
 
 .colors-container {
     display: grid;
     margin: 1.5em auto;
-    grid-template-columns: repeat(5, 23.8em);
+    grid-template-columns: repeat(5, 11.8em);
     justify-content: center;
     padding: 1.5em;
 }
@@ -54,4 +55,37 @@ img {
     flex-direction: column;
     flex-grow: 1;
     text-align: center;
+    gap: 1em;
+}
+
+@media (min-width: 1000px) {
+
+    .colors-container {
+        display: grid;
+        margin: 1.5em auto;
+        grid-template-columns: repeat(5, 23.8em);
+        justify-content: center;
+        padding: 1.5em;
+    }
+
+}
+
+@media (max-width: 500px){
+    .colors-container {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 1em;
+
+    }
+
+    img {
+        height: 120px;
+    }
+
+    section {
+        display: grid;
+        grid-template-columns: .5em 1fr .5em;
+    }
+   
 }
