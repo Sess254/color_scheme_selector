@@ -18,23 +18,25 @@ colorModeSelection.addEventListener('change', (e) => {
 })
 
 
-
-
-btnEl.addEventListener('click', () => {
+function getColorScheme(){
     fetch(`https://www.thecolorapi.com/scheme?hex=${selectedColor}&mode=${selectedMode}`)
-        .then(res => res.json())
-        .then(data => {
-            colorEl.innerHTML = ""
+    .then(res => res.json())
+    .then(data => {
+        colorEl.innerHTML = ""
 
-            for (let color of data.colors){
-                console.log(color)
-                colorEl.innerHTML += `
-                        <div class="colors" id="color-el">
-                            <img src="${color.image.bare}">
-                            <p>${color.hex.value}</p>
-                        </div> 
-                    `
-            }
+        for (let color of data.colors){
+            console.log(color)
+            colorEl.innerHTML += `
+                    <div class="colors" id="color-el">
+                        <img src="${color.image.bare}">
+                        <p>${color.hex.value}</p>
+                        <p>${color.name.value}</p>
+                    </div> 
+                `
+        }
 
-        })
-})
+    }) 
+
+}
+
+btnEl.addEventListener('click', getColorScheme)
